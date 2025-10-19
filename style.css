@@ -1,0 +1,310 @@
+/* --- 1. Global & Reset (Yuka Style) --- */
+:root {
+    --color-A: #008000;      /* Dark Green */
+    --color-B: #7cb900;      /* Light Green */
+    --color-C: #ffb800;      /* Yellow/Orange */
+    --color-D: #ff6600;      /* Dark Orange */
+    --color-E: #cc0000;      /* Red */
+
+    --color-primary-button: #007bff; /* Primary action blue */
+    --color-neutral: #e9ecef; /* Light gray background for details */
+    --color-background: #f8f9fa; 
+    --color-card: #ffffff; 
+    --color-text-dark: #212529; 
+    --color-text-light: #6c757d;
+    --font-family: 'Poppins', sans-serif; /* Clean, modern font */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- 2. Header & Layout --- */
+header {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: var(--color-card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--color-D); 
+    font-size: 1.8rem;
+}
+
+main {
+    width: 100%;
+    max-width: 480px; 
+    padding: 0 15px;
+}
+
+.card-container {
+    background-color: var(--color-card);
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 3. Input & Buttons (Re-styled) --- */
+#input-section {
+    /* 🔑 FIX: Ensures buttons/divs are laid out clearly */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+/* 🔑 FIX: Wrapper for manual input */
+#manual-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#barcode-input {
+    padding: 14px;
+    font-size: 1.1rem;
+    border: 2px solid var(--color-neutral);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.primary-button, .secondary-button, .tertiary-button {
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.primary-button {
+    background-color: var(--color-primary-button);
+    color: white;
+}
+.primary-button:hover { background-color: #0056b3; }
+
+.secondary-button { 
+    background-color: #495057;
+    color: white;
+    margin-bottom: 5px; /* Space above the scanner viewport */
+}
+.secondary-button:hover { background-color: #343a40; }
+
+.tertiary-button { 
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-neutral);
+    margin-top: 25px;
+}
+.tertiary-button:hover { background-color: var(--color-neutral); }
+
+
+/* --- 4. YUKA Score & Header --- */
+
+#score-header-area {
+    text-align: center;
+    padding: 20px 0 30px 0;
+}
+
+.product-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.brand-text {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.score-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px auto;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.score-value {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+/* Score Color Classes */
+.score-A { background-color: var(--color-A); }
+.score-B { background-color: var(--color-B); } 
+.score-C { background-color: var(--color-C); }
+.score-D { background-color: var(--color-D); }
+.score-E { background-color: var(--color-E); }
+.score-NA { background-color: var(--color-text-light); }
+
+
+/* --- 5. Key Indicators (Summary Badges) --- */
+
+.key-indicators-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #f1f1f1;
+}
+
+.indicator-badge {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.indicator-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.indicator-positive {
+    background-color: #e6ffed; 
+    color: #008000;
+}
+
+.indicator-negative {
+    background-color: #ffebe6; 
+    color: #cc0000;
+}
+
+
+/* --- 6. Detailed Data --- */
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.data-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin: 10px 0;
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 8px;
+}
+
+.data-item {
+    padding: 12px;
+    background-color: var(--color-neutral);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.data-item strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.additives-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+}
+
+.additives-list li {
+    background-color: #f1f1f1;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
+/* --- 7. Scanner Styles & Layering Fix --- */
+
+.scanner-viewport {
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden; 
+    position: relative;
+    /* 🔑 FIX: Clear background color to prevent bleed-through */
+    background-color: #343a40; 
+}
+
+#interactive.viewport {
+    width: 100%;
+    height: 250px; 
+    position: relative;
+}
+
+#interactive.viewport > canvas, 
+#interactive.viewport > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.scan-info-text {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.divider {
+    text-align: center;
+    color: var(--color-text-light);
+    margin: 15px 0;
+    font-size: 0.9rem;
+    position: relative;
+}
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #e9ecef;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* 🔑 Utility Class for hiding elements */
+.hidden {
+    display: none !important;
+}
